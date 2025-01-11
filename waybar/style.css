@@ -48,6 +48,13 @@ window#waybar.hidden {
 }
 */
 
+
+#trash {
+  background-color: transparent;
+  color: white;
+  padding-right: 7px;
+}
+
 #custom-updates {
     padding: 5px;
     background-color: transparent;
@@ -158,6 +165,7 @@ button:hover {
   background-color:transparent;
 }
 
+
 #battery icon {
   color: red;
   background-color:transparent;
@@ -170,6 +178,7 @@ button:hover {
 
 #cpu {
   background-color:transparent;
+  padding-left: 5px;
 }
 
 #temperature {
@@ -197,7 +206,7 @@ button:hover {
 
 #backlight {
   background-color:transparent;
-  padding-right: 5px;
+  padding-right: 6px;
 }
 
 @keyframes blink {

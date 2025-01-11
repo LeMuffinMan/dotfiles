@@ -19,6 +19,7 @@
         "backlight",
         "network",
         "bluetooth",
+        "custom/updates",
         "pulseaudio#microphone",
         "pulseaudio" 
         // "hyprland/workspaces"
@@ -30,7 +31,7 @@
         //"hyprland/window"
     ],
     "modules-right": [
-        "custom/updates",
+        "custom/trash",
         "cpu",
         "temperature",
         "memory",
@@ -108,6 +109,14 @@
         "interval": 60,
         "return-type": "json",
         "on-click": "~/.config/waybar/scripts/update.sh" 
+    },
+
+    "custom/trash": {
+        "format": "  {}",
+        "exec": "~/dotfiles/waybar/scripts/trashsize.sh 2> /dev/null",
+        "interval": 60,
+        "return-type": "json",
+        "on-click": "~/.config/waybar/scripts/trashopen.sh"
     },
 
     "custom/wallpaper": {
@@ -256,7 +265,7 @@
         "critical-threshold": 80,
         "format-critical": "{icon} {temperatureC}°C",
         "format": "{icon} {temperatureC}°C",
-        "format-icons": ["", "", ""],
+        "format-icons": ["", "", ""],
         "on-click": "~/.config/scripts/btop.sh"
     },
     "backlight": {
@@ -330,8 +339,8 @@
     "pulseaudio#microphone": {
         "format": "{format_source}",
         "rotate": 0,
-        "format-source": "",
-        "format-source-muted": " ",
+        "format-source": " ",
+        "format-source-muted": "  ",
         "on-click": "amixer set Capture toggle",
         "on-click-right": "pavucontrol -t 4",
         "on-click-middle": "",
