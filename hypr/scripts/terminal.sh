@@ -1,49 +1,22 @@
-# TITLE=$(hyprctl activewindow | grep 'title: ')
-
-get_cwd() {
-
-  local INPUT=$1
-  local HOM=$(echo $INPUT | grep "~" | wc -l)
-  local PAT=$(echo $INPUT | sed 's/~/\/home\/muffin/g' | sed 's/muffin@ArchZen://g')
-  local IS_TILED=$(echo $INPUT | grep -E "^~$" | wc -l)
-  # Si on a juste la tilde
-  if (($IS_TILED == 1)) then
-    echo "$HOME"
-    return
-  fi
-  local FIND_OUT=$(find $HOME -type f -name "$INPUT" | grep -v "^/home/muffin/dotfiles" | grep -v "^/home/muffin/.local/share/nvim/lazy")
-  local FIND_COUNT=$(echo "$FIND_OUT" | wc -l)
-  local IS_DIR=$(echo "$PAT" | grep "/" | wc -l)
-  #si on trouve un fichier 
-  if (($FIND_COUNT == 1)); then
-    if (($IS_DIR == 1)); then
-      echo $PAT
-      return 
-    elif (($IS_DIR == 1)); then
-      echo $PAT
-      return 
-    fi
-    echo $(dirname $FIND_OUT)
-    return
-  fi
-  #Si on trouve aucun ou plus de 1 fichier
-  if (($FIND_COUNT > 1 || $FIND_COUNT == 0)) then
-    echo $HOME
-    return
-  fi
-}
-
 touch /tmp/kittycount
 
 echo "$(date +%D-%H:%M:%S)" >> /tmp/kittycount
 
 CLASS=$(hyprctl activewindow | grep "class: " | awk '{print$2}')
 CWD=$(hyprctl activewindow | grep "title: " | awk '{print$2}') # | awk -F '~' '{print$2}' | awk -F ')' '{print$1}')
-CWDR=$(get_cwd $CWD)
 X=$(($(hyprctl cursorpos | awk '{print$1}' | sed 's/,//g') + 30))
 Y=$(($(hyprctl cursorpos | awk '{print$2}') + 30))
 ISFLOAT=$(hyprctl activewindow | grep "floating: " | awk '{print$2}')
+INPUT=$CWD
+ISFILE=$(echo $INPUT | grep "~" | wc -l )
+INPUTCLEAN=$( echo $INPUT | sed 's/muffin@ArchZen://' | sed 's/^~/\/home\/muffin/' | sed '/^\/home\/muffin\/\.trash/d')
 
+if [[ $ISFILE == 1 ]]; then
+  CWDR=$INPUTCLEAN
+else
+  CWD=$(find /home/muffin/ -type f -name "$INPUT" | sed '/^\/home\/muffin\/\.local\/share/d'  )
+  CWDR=$(dirname "$CWD")
+fi
 if [[ "$ISFLOAT" == 1 ]] then
   hyprctl dispatch movecursor $X $Y
 fi
