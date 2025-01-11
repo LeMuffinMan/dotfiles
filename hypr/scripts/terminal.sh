@@ -40,6 +40,13 @@ echo "$(date +%D-%H:%M:%S)" >> /tmp/kittycount
 CLASS=$(hyprctl activewindow | grep "class: " | awk '{print$2}')
 CWD=$(hyprctl activewindow | grep "title: " | awk '{print$2}') # | awk -F '~' '{print$2}' | awk -F ')' '{print$1}')
 CWDR=$(get_cwd $CWD)
+X=$(($(hyprctl cursorpos | awk '{print$1}' | sed 's/,//g') + 30))
+Y=$(($(hyprctl cursorpos | awk '{print$2}') + 30))
+ISFLOAT=$(hyprctl activewindow | grep "floating: " | awk '{print$2}')
+
+if [[ "$ISFLOAT" == 1 ]] then
+  hyprctl dispatch movecursor $X $Y
+fi
 
 if [[ -d "$CWDR" ]]; then
   kitty --directory $CWDR bash -c "fastfetch --logo-type none --config ~/.config/fastfetch/micro.jsonc; zsh"
