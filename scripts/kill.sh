@@ -8,5 +8,6 @@ if (($CLASS > 0)) then
   sleep 1
 else
   hyprctl dispatch killactive
+  hyprctl dispatch focuswindow
 fi
 
