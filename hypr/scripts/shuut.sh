@@ -1,23 +1,17 @@
-kill_window()
-{
-  # sleep 0.1
-  tokill=$(hyprctl activeworkspace | grep "lastwindow: " | awk '{print $2}' | sed 's/^0x//')
-  pid=$(hyprctl clients | grep  -A 13 "$tokill" | tail -n 1 | awk '{print$2}')
-  kill $pid
-  # sleep 1
-}
 
 kill_workspace()
 {
+  WS=$(hyprctl activeworkspace | grep "workspace ID" | awk '{print$3}')
+
   while true; do
 
-    findwin=$(hyprctl activeworkspace | grep "lastwindow: " | awk '{print $2}' | sed 's/^0x//')
-    echo $findwin
-    if (("$findwin" == "0"))
+    TOTALWIN=$(hyprctl activeworkspace | grep "windows: " | awk '{print$2}' | head -n 1)
+    if (("$TOTALWIN" == "0"))
     then
       break
     else
-    kill_window
+    pid=$(hyprctl clients | grep -A 8 "workspace: $WS" | grep "pid: " | head -n 1 | awk '{print$2}')
+    kill $pid
     fi
   done
 }
