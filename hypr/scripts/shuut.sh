@@ -25,5 +25,6 @@ kill_workspace()
 kill_workspace
 pkill firefox
 pkill vivaldi
+pkill spotify
 sleep 1
 kitty -e --class "shut" bash -c "bash ~/.config/hypr/scripts/statsess.sh; echo -e '\n'; fastfetch --logo arch_small --config ~/.config/fastfetch/shuut.jsonc; read; sudo shutdown now"
