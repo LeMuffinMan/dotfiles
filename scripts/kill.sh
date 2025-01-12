@@ -5,9 +5,8 @@ PID=$(hyprctl activewindow | grep "pid: " | sed "s/^\tpid: //g")
 
 if (($CLASS > 0)) then
   kill $PID
-  sleep 1
+  # sleep 1
 else
   hyprctl dispatch killactive
-  hyprctl dispatch focuswindow
 fi
 
