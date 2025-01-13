@@ -25,6 +25,6 @@ echo -e "Packages to udpate\t:\t$PKGU"
 # echo -e "Errors / warning\t:\t\t"
 # echo -e ""
 echo ''
-echo 'Dotfiles: nothing to commit, working tree clean'
+echo 'Dotfiles: nothing to commit'
 
 
