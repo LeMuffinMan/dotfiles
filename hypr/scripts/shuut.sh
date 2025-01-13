@@ -53,7 +53,7 @@ gitdotfiles ()
 
   if [[ $UNTRACKED > 0 ]];
   then
-    echo 'New files to commit'
+    echo 'New files to commit !'
   fi
 
 }
