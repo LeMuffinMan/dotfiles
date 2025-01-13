@@ -57,9 +57,17 @@ gitdotfiles ()
 
 }
 
-kill_workspace
-pkill firefox
-pkill vivaldi
-pkill spotify
-sleep 1
-kitty -e --class "shut" bash -c "bash ~/.config/hypr/scripts/statsess.sh; echo -e '\n'; fastfetch --logo arch_small --config ~/.config/fastfetch/shuut.jsonc; read; sudo shutdown now"
+GITCHECK=$(gitdotfiles | wc -l )
+
+if [[ $(echo "$GITCHECK" | wc - l) > 1 ]];
+then
+  echo "$GITCHECK"
+  kitty -e --class "gitstatus" bash -c "cd /home/muffin/dotfiles/; git status; zsh"
+else
+  kill_workspace
+  pkill firefox
+  pkill vivaldi
+  pkill spotify
+  sleep 1
+  kitty -e --class "shut" bash -c "bash ~/.config/hypr/scripts/statsess.sh; echo -e '\n'; fastfetch --logo arch_small --config ~/.config/fastfetch/shuut.jsonc; read; sudo shutdown now"
+fi
