@@ -16,6 +16,19 @@ kill_workspace()
   done
 }
 
+gitdotfiles ()
+{
+  cd /home/muffin/dotfiles/
+  STATUS=$(git status)
+  PULL=$(echo "$STATUS" | grep "Your branch is up to date with 'origin/main'." | wc -l )
+  COMMIT=$(echo "$STATUS" | grep "Your branch is ahead of 'origin/main' by" | wc -l )
+  UNSTAGED=$(echo "$STATUS" | grep "Changes not staged for commit:" | wc -l )
+  # echo -e "$STATUS"
+  echo -e "$PULL"
+  echo -e "$COMMIT"
+  echo -e "$UNSTAGED"
+}
+
 kill_workspace
 pkill firefox
 pkill vivaldi

@@ -27,3 +27,4 @@ then
   cp ~/dotfiles/hypr/conf/2keybindings.conf ~/dotfiles/hypr/conf/keybindings.conf 2>> /home/muffin/logs/switchconfig.log
 fi
 
+
