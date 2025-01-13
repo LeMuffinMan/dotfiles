@@ -18,7 +18,7 @@ then
   read SH
   if [[ $SH == 'y' ]];
   then 
-    kitty -e bash -c  "/home/muffin/dotfiles/hypr/scripts/shuut.sh; read"
+    /home/muffin/dotfiles/hypr/scripts/shuut.sh
   fi
   exit 0
 else
