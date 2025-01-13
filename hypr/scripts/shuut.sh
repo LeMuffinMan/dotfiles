@@ -28,7 +28,6 @@ gitdotfiles ()
   UNTRACKED=$(echo "$STATUS" | grep "Untracked files:" | wc -l )
   UPTODATE=$(echo "$STATUS" | grep "nothing to commit, working tree clean" | wc -l )
 
-
   if [[ $UPTODATE == 1 ]];
   then
     echo 'Dotfiles: nothing to commit'
@@ -81,5 +80,4 @@ kitty -e --class "shut" bash -c "
               echo -e '\n'; 
               fastfetch --logo arch_small --config ~/.config/fastfetch/shuut.jsonc; 
               read; 
-              sudo ~/dotfiles/hypr/scripts/countdown.sh;
               sudo shutdown now"
