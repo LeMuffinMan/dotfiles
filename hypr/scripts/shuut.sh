@@ -81,4 +81,5 @@ kitty -e --class "shut" bash -c "
               echo -e '\n'; 
               fastfetch --logo arch_small --config ~/.config/fastfetch/shuut.jsonc; 
               read; 
+              sudo ~/dotfiles/hypr/scripts/countdown.sh;
               sudo shutdown now"
