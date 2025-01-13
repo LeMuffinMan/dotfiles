@@ -11,6 +11,7 @@ date_log=$(cat /var/log/pacman.log | grep "upgraded" | tail -n 1 | awk '{print$1
 formatted_date=$(date -d "${date_log//T/ }" "+%d/%m/%Y - %H:%M")
 PKGU=$(checkupdates-with-aur | wc -l)
 
+
 echo -e "\n\t\tMY SESSION STATS\n"
 
 echo -e "Terminals opened\t:\t$TERM"
