@@ -31,7 +31,7 @@ gitdotfiles ()
 
   if [[ $UPTODATE == 1 ]];
   then
-    echo 'Dotfiles: nothing to commit, working tree clean'
+    echo 'Dotfiles: nothing to commit'
     exit 0
   else
     echo 'Dotfiles: '
