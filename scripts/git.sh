@@ -18,7 +18,7 @@ then
   read SH
   if [[ $SH == 'y' ]];
   then 
-    /home/muffin/dotfiles/hypr/scripts/shuut.sh
+    exit 1
   fi
   exit 0
 else
