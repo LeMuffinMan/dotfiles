@@ -1,3 +1,4 @@
+#!/bin/bash
 
 kill_workspace()
 {
@@ -18,15 +19,42 @@ kill_workspace()
 
 gitdotfiles ()
 {
+
   cd /home/muffin/dotfiles/
   STATUS=$(git status)
   PULL=$(echo "$STATUS" | grep "Your branch is up to date with 'origin/main'." | wc -l )
   COMMIT=$(echo "$STATUS" | grep "Your branch is ahead of 'origin/main' by" | wc -l )
   UNSTAGED=$(echo "$STATUS" | grep "Changes not staged for commit:" | wc -l )
-  # echo -e "$STATUS"
-  echo -e "$PULL"
-  echo -e "$COMMIT"
-  echo -e "$UNSTAGED"
+  UNTRACKED=$(echo "$STATUS" | grep "Untracked files:" | wc -l )
+  UPTODATE=$(echo "$STATUS" | grep "nothing to commit, working tree clean" | wc -l )
+
+
+  if [[ $UPTODATE == 1 ]];
+  then
+    echo 'Dotfiles: nothing to commit, working tree clean'
+  else
+    echo 'Dotfiles: '
+  fi
+
+  if [[ $PULL == 0 ]];
+  then
+    echo 'Need a pull !'
+  fi
+
+  if [[ $UNSTAGED > 0 ]];
+  then
+    echo 'Files modified to commit !'
+    echo ''
+    echo "$(echo "$STATUS" | grep "modified: " | awk '{print$2}' )"
+    echo ''
+    # echo 'TOSTAGE'
+  fi
+
+  if [[ $UNTRACKED > 0 ]];
+  then
+    echo 'New files to commit'
+  fi
+
 }
 
 kill_workspace
