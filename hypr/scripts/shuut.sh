@@ -32,6 +32,7 @@ gitdotfiles ()
   if [[ $UPTODATE == 1 ]];
   then
     echo 'Dotfiles: nothing to commit, working tree clean'
+    exit 0
   else
     echo 'Dotfiles: '
   fi
@@ -57,10 +58,9 @@ gitdotfiles ()
 
 }
  
- 
-GITCHECK=$(gitdotfiles | wc -l )
+GITCHECK=$(gitdotfiles)
 
-if [[ $(echo "$GITCHECK" | wc - l) > 1 ]];
+if [[ $(echo "$GITCHECK" | wc -l) > 1 ]];
 then
   echo "$GITCHECK"
   kitty -e --class "gitstatus" bash -c " /home/muffin/dotfiles/scripts/git.sh"
