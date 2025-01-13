@@ -11,7 +11,7 @@ echo "$MONITORLOGS" >> /home/muffin/logs/switchconfig.log
 
 if [[ $MONITORS == 1 ]];
 then
-  echo '1 monitors config loaded' >> /home/muffin/logs/switchconfig.log
+  echo '1 monitor config loaded' >> /home/muffin/logs/switchconfig.log
   cp ~/dotfiles/hypr/conf/1monitors.conf ~/dotfiles/hypr/conf/monitors.conf 2>> /home/muffin/logs/switchconfig.log
   cp ~/dotfiles/hypr/conf/1input.conf ~/dotfiles/hypr/conf/input.conf 2>> /home/muffin/logs/switchconfig.log
   cp ~/dotfiles/hypr/conf/1windowrules.conf ~/dotfiles/hypr/conf/windowrules.conf 2>> /home/muffin/logs/switchconfig.log
