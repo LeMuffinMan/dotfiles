@@ -57,6 +57,7 @@ gitdotfiles ()
 
 }
  
+
 GITCHECK=$(gitdotfiles)
 
 if [[ $(echo "$GITCHECK" | wc -l) > 1 ]];
