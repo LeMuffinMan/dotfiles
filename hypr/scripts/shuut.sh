@@ -64,16 +64,21 @@ if [[ $(echo "$GITCHECK" | wc -l) > 1 ]];
 then
   echo "$GITCHECK"
   kitty -e --class "gitstatus" bash -c " /home/muffin/dotfiles/scripts/git.sh"
-else
-  kill_workspace
-  pkill firefox
-  pkill vivaldi
-  pkill spotify
-  sleep 1
-  kitty -e --class "shut" bash -c "
-                bash ~/.config/hypr/scripts/statsess.sh; 
-                echo -e '\n'; 
-                fastfetch --logo arch_small --config ~/.config/fastfetch/shuut.jsonc; 
-                read; 
-                sudo shutdown now"
+  echo 'Shutdown now ? y/n'
+  read SH
+  if [[ $SH == 'y' ]];
+  then 
+    exit 0
+  fi
 fi
+kill_workspace
+pkill firefox
+pkill vivaldi
+pkill spotify
+sleep 1
+kitty -e --class "shut" bash -c "
+              bash ~/.config/hypr/scripts/statsess.sh; 
+              echo -e '\n'; 
+              fastfetch --logo arch_small --config ~/.config/fastfetch/shuut.jsonc; 
+              read; 
+              sudo shutdown now"
