@@ -5,12 +5,18 @@ git status
 echo ''
 echo 'Yolo commit ? y/n'
 read CO
+echo ''
 if [[ $CO == 'y' ]];
 then
   git add *
   git yolo
-  echo ''
   echo "commit : $(git log | head -n 5 | tail -n 1)"
+else
+  echo -e 'git commit -m "\n'
+  read COMMIT
+  git add *
+  git commit -m "$COMMIT"
+fi
   echo ''
   git push
   echo ''
