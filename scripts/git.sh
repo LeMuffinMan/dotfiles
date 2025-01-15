@@ -12,7 +12,7 @@ then
   git yolo
   echo "commit : $(git log | head -n 5 | tail -n 1)"
 else
-  echo -e 'git commit -m "\n'
+  echo -e 'git commit -m'
   read COMMIT
   git add *
   git commit -m "$COMMIT"
