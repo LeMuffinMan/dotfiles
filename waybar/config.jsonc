@@ -31,13 +31,13 @@
         //"hyprland/window"
     ],
     "modules-right": [
-        "custom/trash",
+        // "custom/trash",
         "cpu",
         "temperature",
         "memory",
         //"idle_inhibitor", 
-        "custom/poweroff",
-        "hyprland/language"
+        "hyprland/language",
+        "custom/poweroff"
         //"keyboard-state,", 
         //"battery", 
         //"battery#bat2", 
@@ -89,7 +89,7 @@
         "format": " {}",
         "format-en": "EN  ",
         "format-fr": "FR  ",
-        "keyboard-name": "dell-dell-usb-entry-keyboard"
+        "keyboard-name": "dell-dell-usb-entry-keyboard" //changer avec switchconfig ?
     },
     "bluetooth": {
         "format": "󰂯",
@@ -103,7 +103,7 @@
         "tooltip-format-enumerate-connected-battery": "{device_alias}\t{icon} {device_battery_percentage}%"
     },
 
-    "custom/updates": {
+    "custom/updates": { // parfois affiche 1 ou 0 ?
         "format": "  {}",
         "exec": "~/.config/waybar/scripts/check_updates.sh 2> /dev/null",
         "interval": 60,
@@ -111,7 +111,7 @@
         "on-click": "~/.config/waybar/scripts/update.sh" 
     },
 
-    "custom/trash": {
+    "custom/trash": { //a finir
         "format": "  {}",
         "exec": "~/dotfiles/waybar/scripts/trashsize.sh 2> /dev/null",
         "interval": 60,
@@ -269,12 +269,12 @@
         "on-click": "~/.config/scripts/btop.sh"
     },
     "backlight": {
-        // "device": "acpi_video1",
+        "device": "acpi_video1",
         "format": "{icon}  {percent}%",
-        "format-icons": [""],
         "format-icons": ["", "", "", "", "", "", "", "", ""],
-        "on-scroll-up": "brightnessctl set 5%+",
-        "on-scroll-down": "brightnessctl set 5%-",
+        "scroll-step": 10,
+        // "on-scroll-up": "brightnessctl set 5%+",
+        // "on-scroll-down": "brightnessctl set 5%-",
         "min-length": 6
     },
     "battery": {
