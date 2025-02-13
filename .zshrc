@@ -118,3 +118,5 @@ alias todo='nv ~/todo'
 
 #prompt pretty
 eval "$(starship init zsh)"
+
+# . "$HOME/.local/bin/env"
