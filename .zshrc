@@ -98,6 +98,13 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch $(uname -m)"
 
+
+#prompt pretty
+eval "$(starship init zsh)"
+
+# . "$HOME/.local/bin/env"
+#
+
 # Set personal aliases, overriding those provided by Oh My Zsh libs,
 # plugins, and themes. Aliases can be placed here, though Oh My Zsh
 # users are encouraged to define aliases within a top-level file in
@@ -110,13 +117,10 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+alias al='$HOME/42/42_scripts/alias_manager.sh'
 alias nf='fastfetch'
 alias ff='fastfetch'
 alias nv='$EDITOR'
 alias vim='$EDITOR'
 alias todo='nv ~/todo'
-
-#prompt pretty
-eval "$(starship init zsh)"
-
-# . "$HOME/.local/bin/env"
+alias lol='lol'
