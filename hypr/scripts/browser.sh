@@ -1,7 +1,7 @@
 
 #!/bin/sh
 
-windows="$(hyprctl clients | grep "class: firefox" | wc -l)"
+windows="$(hyprctl clients | grep "class: zen" | wc -l)"
 
 echo $windows
 
@@ -9,7 +9,7 @@ if ((windows == 0))
 then
     hyprctl dispatch focusmonitor 1
     hyprctl dispatch workspace 2
-    firefox &
+    zen-browser &
 else
     hyprctl dispatch focusmonitor 1
     hyprctl dispatch workspace 2
