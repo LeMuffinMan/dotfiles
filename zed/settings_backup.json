@@ -26,10 +26,11 @@
   "theme": {
     "mode": "system",
     "light": "One Light",
-    "dark": "Ayu Dark"
+    "dark": "Catppuccin Macchiato"
   },
   "agent": {
     "enabled": false,
+    "version": "2"
   },
   "scrollbar": {
     "show": "never",
