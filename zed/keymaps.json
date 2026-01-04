@@ -1,0 +1,9 @@
+{
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-o": "editor::SwitchFocusToProjectPanel",
+      "ctrl-e": "project_panel::ToggleFocus"
+    }
+  }
+}
