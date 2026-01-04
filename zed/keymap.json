@@ -31,6 +31,14 @@
 // "space w c": "pane::CloseAllItems",
 // "space w d": "pane::CloseAllItems",
 
+//indentation
+// mode visual
+// selectionner les lignes
+// > -> un a droite
+// 3 > -> 3 a droite
+// < -> a gauche
+// ...
+
 [
   // Terminal
   {

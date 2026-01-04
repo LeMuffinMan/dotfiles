@@ -14,8 +14,22 @@
       "alt": false,
       "shift": false,
       "platform": false,
-      "function": false
-    }
+      "function": false,
+    },
+  },
+  "lsp": {
+    "rust-analyzer": {
+      "settings": {
+        "rust-analyzer": {
+          "rustc": {
+            "source": "/home/oelleaum/.rust_src/rust-src-$VERSION/rust-src/lib/rustlib/src/rust/library",
+          },
+          "cargo": {
+            "loadOutDirsFromCheck": true,
+          },
+        },
+      },
+    },
   },
   "icon_theme": "Zed (Default)",
   "vim_mode": true,
@@ -24,9 +38,9 @@
   "theme": {
     "mode": "dark",
     "light": "One Light",
-    "dark": "Ayu Dark"
+    "dark": "Ayu Mirage",
   },
   "vim": {
-    "leader_key": "space"
-  }
+    "leader_key": "space",
+  },
 }
