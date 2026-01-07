@@ -1,0 +1,6 @@
+[general]
+import = ["~/.config/alacritty/themes/deep_space.toml"]
+
+[window]
+opacity = 0.60
+blur = true
