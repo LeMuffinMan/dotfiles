@@ -138,6 +138,7 @@
       // "cmd-l": "assistant::InlineAssist",
       // "space a t": "workspace::ToggleRightDock",
       // Git
+
       "space g g": [
         "task::Spawn",
         {
@@ -275,6 +276,13 @@
     "bindings": {
       "u": "editor::Undo",
       "ctrl-r": "editor::Redo",
+    },
+  },
+  {
+    "context": "Editor && VimControl",
+    "bindings": {
+      "shift-left": "editor::MoveToPreviousWordStart",
+      "shift-right": "editor::MoveToNextWordEnd",
     },
   },
 ]
